@@ -11,6 +11,7 @@ struct AboutLP: View {
     var scene: SKScene {
         let scene = LpGameScene()
         scene.size = CGSize(width: 900, height: 400)
+        scene.anchorPoint = .init(x: 0.5, y: 0.5)
         scene.scaleMode = .fill
         return scene
     }
@@ -19,7 +20,7 @@ struct AboutLP: View {
         ZStack{
             Color.black
                 .ignoresSafeArea()
-            ScrollView{
+            
                 VStack(spacing: 15){
                     if #available(iOS 16.0, *) {
                         Text("Titulo")
@@ -40,7 +41,7 @@ struct AboutLP: View {
                         .frame(width: 900, height: 400)
                         .ignoresSafeArea()
                 }
-            }
+            
         }
     }
 }
