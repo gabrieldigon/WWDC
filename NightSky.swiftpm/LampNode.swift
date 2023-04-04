@@ -6,17 +6,17 @@ class LampNode: SKNode {
     
     let light : SKLightNode
     let lamp : SKShapeNode
-    var category : UInt32
-    init(category:UInt32) {
+   
+    override init() {
         
-        self.category = category
+       
         self.light = SKLightNode()
-        self.light.lightColor = UIColor.yellow
+        self.light.lightColor = UIColor.white
         self.light.ambientColor = UIColor.gray
-        self.light.shadowColor = UIColor.black
-        self.light.falloff = 1.0
-        self.light.categoryBitMask = category
-        
+        self.light.shadowColor = UIColor.clear
+        self.light.falloff = 0.8
+        self.light.categoryBitMask = 0
+        	
         self.lamp = SKShapeNode(circleOfRadius: 20)
         self.lamp.fillColor = SKColor.yellow
         
