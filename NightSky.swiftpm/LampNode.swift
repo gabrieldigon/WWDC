@@ -5,8 +5,7 @@ import SpriteKit
 class LampNode: SKNode {
     
     let light : SKLightNode
-    let lamp : SKShapeNode
-    let imageLamp : SKSpriteNode
+    var imageLamp : SKSpriteNode
    
     override init() {
         
@@ -16,16 +15,14 @@ class LampNode: SKNode {
         self.light.ambientColor = UIColor.gray
         self.light.shadowColor = UIColor.clear
         self.light.falloff = 1.0
-        self.light.categoryBitMask = 1
-        	
-        self.lamp = SKShapeNode(circleOfRadius: 20)
-        self.lamp.fillColor = SKColor.yellow
+        self.light.categoryBitMask = 0
         
-        self.imageLamp = .init(imageNamed: "luz_1_lit")
+        self.imageLamp = .init(imageNamed: "lampDrawOff")
+        self.imageLamp.texture?.filteringMode = .nearest
         super.init()
             
-        self.addChild(lamp)
-        self.lamp.addChild(light)
+        self.addChild(light)
+        self.light.addChild(imageLamp)
     
     }
     

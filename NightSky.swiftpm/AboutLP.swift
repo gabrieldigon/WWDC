@@ -22,12 +22,14 @@ struct AboutLP: View {
                 .ignoresSafeArea()
             
                 VStack{
+                    Spacer()
                         HStack{
-                            Text("1.Click and drag to add a light")
+                            Text("Click and drag to move the lamp")
+                                .font(.custom("Marker Felt", size: 50))
                                 .foregroundColor(.white)
-                                .multilineTextAlignment(.leading)
+                                .multilineTextAlignment(.center)
                                 .font(.largeTitle)
-                            Spacer()
+                         
                         }
                     Spacer()
                     SpriteView(scene: scene)
