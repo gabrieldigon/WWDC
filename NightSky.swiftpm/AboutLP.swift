@@ -23,23 +23,37 @@ struct AboutLP: View {
             
                 VStack(spacing: 15){
                     if #available(iOS 16.0, *) {
-                        Text("Titulo")
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.leading)
-                            .tracking(2)
-                            .baselineOffset(13)
-                        
-                        Text("Imagine como os homens primitivos olhavam para o céu a noite. Milhões de pontos brilhantes desafiando sua compreensão da realidade. Muitos criaram mitologias, outros aprenderam a se orientar. Mas, uma coisa é certa, nossa visão no Universo impulsionou nossa imaginação e ciência. Porém, poucos agora tem o privilégio de olhar para o céu noturno e ver as estrelas. As cidades estão inundando o céu com poluição luminosa, o que prejudica consideravelmente a obervação das estrelas. Só que ainda existem lugares onde isso é possível.O fotógrafo  Sriram Murali resolveu mostrar essa diferença entre locais com muita e com pouca poluição luminosa em um pequeno time lapse. Para o projeto ele utilizou a  escala Bortle que mede a quantidade de poluição luminosa no céu noturno. A escala vai de 1 a 9, sendo que o 1 é o céu totalmente limpo, onde as constelações do zodíaco são perfeitamente identificadas e é possível observar suas características, e o 8 e 9 são os céus das cidades, normalmente alaranjados.")
+                        HStack{
+                            Text("Porque não se ve o céu de verdade?")
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.leading)
+                                .tracking(2)
+                                .baselineOffset(13)
+                                .font(.largeTitle)
+                                .bold(true)
+                            Spacer()
+                        }
+                        Text("A maior razão é a poluição luminosa que ocorre quando luzes artificiais são apontadas para o lugar errado: O céu, isso faz com que nossas luzes ofusquem o brilho das luzes naturais de corpos celestes que estão mais distantes")
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .tracking(2)
+                            .font(.system(size: 25))
+                            .baselineOffset(10)
+                        
+                        Text("veja no exemplo abaixo como uma fonte de luz mais proxima (💡▫️) reage com o chão em comparação fonte de luz mais longe (🌟🔹).")
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .tracking(2)
+                            .font(.system(size: 25))
                             .baselineOffset(13)
                     } else {
                         // Fallback on earlier versions
                     }
                     SpriteView(scene: scene)
+                        
                         .frame(width: 900, height: 400)
                         .ignoresSafeArea()
+                    Spacer()
                 }
             
         }
