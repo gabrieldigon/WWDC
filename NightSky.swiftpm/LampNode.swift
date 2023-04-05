@@ -15,7 +15,7 @@ class LampNode: SKNode {
         self.light.lightColor = UIColor.white
         self.light.ambientColor = UIColor.gray
         self.light.shadowColor = UIColor.clear
-        self.light.falloff = 0.8
+        self.light.falloff = 1.0
         self.light.categoryBitMask = 1
         	
         self.lamp = SKShapeNode(circleOfRadius: 20)

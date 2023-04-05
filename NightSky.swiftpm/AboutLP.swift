@@ -9,8 +9,8 @@ import SwiftUI
 import SpriteKit
 struct AboutLP: View {
     var scene: SKScene {
-        let scene = LpGameScene()
-        scene.size = CGSize(width: 900, height: 400)
+        let scene = LightExpandGs()
+        scene.size = CGSize(width: 1000, height: 1000)
         scene.anchorPoint = .init(x: 0.5, y: 0.5)
         scene.scaleMode = .fill
         return scene
@@ -21,37 +21,17 @@ struct AboutLP: View {
             Color.black
                 .ignoresSafeArea()
             
-                VStack(spacing: 15){
-                    if #available(iOS 16.0, *) {
+                VStack{
                         HStack{
-                            Text("Porque não se ve o céu de verdade?")
+                            Text("1.Click and drag to add a light")
                                 .foregroundColor(.white)
                                 .multilineTextAlignment(.leading)
-                                .tracking(2)
-                                .baselineOffset(13)
                                 .font(.largeTitle)
-                                .bold(true)
                             Spacer()
                         }
-                        Text("A maior razão é a poluição luminosa que ocorre quando luzes artificiais são apontadas para o lugar errado: O céu, isso faz com que nossas luzes ofusquem o brilho das luzes naturais de corpos celestes que estão mais distantes")
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                            .tracking(2)
-                            .font(.system(size: 25))
-                            .baselineOffset(10)
-                        
-                        Text("veja no exemplo abaixo como uma fonte de luz mais proxima (💡▫️) reage com o chão em comparação fonte de luz mais longe (🌟🔹).")
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                            .tracking(2)
-                            .font(.system(size: 25))
-                            .baselineOffset(13)
-                    } else {
-                        // Fallback on earlier versions
-                    }
+                    Spacer()
                     SpriteView(scene: scene)
-                        
-                        .frame(width: 900, height: 400)
+                        .frame(width: 1000, height: 1000)
                         .ignoresSafeArea()
                     Spacer()
                 }
