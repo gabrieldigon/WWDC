@@ -12,8 +12,9 @@ class circleNode : SKNode{
     let DrawCircle : SKSpriteNode
     
     override init() {
-        self.DrawCircle = .init(imageNamed: "CircleDrawA")
+        self.DrawCircle = .init(imageNamed: "NewCircleDraw")
         super.init()
+        self.DrawCircle.size = .init(width: 800, height: 800)
         self.addChild(DrawCircle)
     }
     
