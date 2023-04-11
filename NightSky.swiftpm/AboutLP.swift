@@ -9,7 +9,7 @@ import SwiftUI
 import SpriteKit
 struct AboutLP: View {
     var scene: SKScene {
-        let scene = LightExpandGs()
+        let scene = DiferentLightGs()
         scene.size = CGSize(width: 1000, height: 1000)
         scene.anchorPoint = .init(x: 0.5, y: 0.5)
         scene.scaleMode = .fill

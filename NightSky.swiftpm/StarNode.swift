@@ -21,7 +21,7 @@ class StarNode: SKNode {
         self.light.ambientColor = UIColor.blue
         self.light.shadowColor = UIColor.clear
         self.light.falloff = 1.0
-        self.light.categoryBitMask = 1
+        self.light.categoryBitMask = 0
         
         self.star = SKShapeNode(circleOfRadius: 5)
         self.star.fillColor = SKColor.clear

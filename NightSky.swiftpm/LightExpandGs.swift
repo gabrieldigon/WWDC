@@ -22,7 +22,7 @@ class LightExpandGs: SKScene {
     let labelLeft = SKLabelNode(fontNamed: "Marker Felt")
     let labelUp = SKLabelNode(fontNamed: "Marker Felt")
     let labelDown = SKLabelNode(fontNamed: "Marker Felt")
-    let background = SKSpriteNode(imageNamed: "background")
+    let background = SKSpriteNode(imageNamed: "backgroundDegrade")
     let drawCircle = circleNode()
     override func didMove(to view: SKView) {
         background.lightingBitMask = 1
