@@ -15,7 +15,8 @@ class DiferentLightGs : SKScene {
     let background = SKSpriteNode(imageNamed: "backgroundDegrade")
     var goodLabel = SKLabelNode(fontNamed:"Marker Felt")
     var badLabel = SKLabelNode(fontNamed:"Marker Felt")
-    let eye = SKSpriteNode(color: .white, size: CGSize(width: 100, height: 400))
+    let goodEye = SKSpriteNode(color: .white, size: CGSize(width: 100, height: 400))
+    let badEye = SKSpriteNode(color: .white, size: CGSize(width: 100, height: 400))
     var drawCircle = circleNode()
     override func didMove(to view: SKView) {
         
@@ -25,17 +26,20 @@ class DiferentLightGs : SKScene {
         background.lightingBitMask = 1
         addChild(background)
         
+        // adding bad eye
+        badEye.position = CGPoint(x: -200, y: 0.5)
+        badEye.shadowCastBitMask = 2
+        addChild(badEye)
         
+        //adicionar olho bom
+        goodEye.position = CGPoint(x: 200, y: 0.5)
+        goodEye.shadowCastBitMask = 1
+        addChild(goodEye)
         
-        //adicionar olho
-        eye.position = CGPoint(x: 200, y: 0.5)
-        eye.shadowCastBitMask = 1
-        
-        addChild(eye)
         //adding circle
         
         drawCircle.position = CGPoint(x: 0.5, y: 0.5)
-        drawCircle.DrawCircle.size = .init(width: 300, height: 300)
+        drawCircle.DrawCircle.size = .init(width: 350, height: 350)
         addChild(drawCircle)
         // adding bad lamp
         goodLamp.name = "draggable"
@@ -63,7 +67,7 @@ class DiferentLightGs : SKScene {
         //label GoodLamp
         badLabel.text = "This light causes glare in our eyes!"
         badLabel.fontSize = 30
-        badLabel.position = CGPoint(x: 375, y: 0.5)
+        badLabel.position = CGPoint(x: -375, y: 0.5)
         badLabel.fontColor = SKColor.black
         badLabel.isHidden = true
         badLabel.lineBreakMode = .byCharWrapping
@@ -88,6 +92,7 @@ class DiferentLightGs : SKScene {
                 goodLamp.light.categoryBitMask = 1
                 goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
                 goodLabel.isHidden = false
+                
             }
             else{
                 
@@ -96,7 +101,7 @@ class DiferentLightGs : SKScene {
                 goodLabel.isHidden = true
             }
             if badLamp.position.x > -60 && badLamp.position.x < 60 && badLamp.position.y > -60 && badLamp.position.y < 60 {
-                badLamp.light.categoryBitMask = 1
+                badLamp.light.categoryBitMask = 2
                 badLamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
                 badLabel.isHidden = false
             }
