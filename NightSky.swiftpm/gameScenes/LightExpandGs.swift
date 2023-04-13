@@ -26,6 +26,7 @@ class LightExpandGs: SKScene {
     let drawCircle = circleNode()
     override func didMove(to view: SKView) {
         background.lightingBitMask = 1
+        background.size = .init(width: 1100, height: 1200)
         addChild(background)
         //criando cenario
             
@@ -150,15 +151,3 @@ class LightExpandGs: SKScene {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
- 

@@ -15,24 +15,24 @@ class DiferentLightGs : SKScene {
     let background = SKSpriteNode(imageNamed: "backgroundDegrade")
     var goodLabel = SKLabelNode(fontNamed:"Marker Felt")
     var badLabel = SKLabelNode(fontNamed:"Marker Felt")
-    let goodEye = SKSpriteNode(color: .white, size: CGSize(width: 100, height: 400))
-    let badEye = SKSpriteNode(color: .white, size: CGSize(width: 100, height: 400))
+    let goodEye = SKSpriteNode(imageNamed: "blueRoundEye")
+    let badEye = SKSpriteNode(imageNamed: "browRoundEye")
     var drawCircle = circleNode()
     override func didMove(to view: SKView) {
         
-       
-       
         //adding background
         background.lightingBitMask = 1
+        background.size = .init(width: 1100, height: 1200)
+       
         addChild(background)
         
         // adding bad eye
-        badEye.position = CGPoint(x: -200, y: 0.5)
+        badEye.position = CGPoint(x: -250, y: 0.5)
         badEye.shadowCastBitMask = 2
         addChild(badEye)
         
         //adicionar olho bom
-        goodEye.position = CGPoint(x: 200, y: 0.5)
+        goodEye.position = CGPoint(x: 250, y: 0.5)
         goodEye.shadowCastBitMask = 1
         addChild(goodEye)
         
@@ -43,13 +43,13 @@ class DiferentLightGs : SKScene {
         addChild(drawCircle)
         // adding bad lamp
         goodLamp.name = "draggable"
-        goodLamp.position = CGPoint(x: -330, y: -102)
+        goodLamp.position = CGPoint(x: 0.5, y: -150)
         goodLamp.light.shadowColor = .white
         addChild(goodLamp)
         
         // adding good lamp
         badLamp.name = "draggable"
-        badLamp.position = CGPoint(x: -343, y: 202)
+        badLamp.position = CGPoint(x: 0.5, y: 150)
         badLamp.light.shadowColor = .systemBlue
         addChild(badLamp)
         
@@ -74,6 +74,10 @@ class DiferentLightGs : SKScene {
         badLabel.numberOfLines = 3
         badLabel.preferredMaxLayoutWidth = 200
         addChild(badLabel)
+        
+        //add button
+      
+       
 
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -92,6 +96,7 @@ class DiferentLightGs : SKScene {
                 goodLamp.light.categoryBitMask = 1
                 goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
                 goodLabel.isHidden = false
+                background.lightingBitMask = 1
                 
             }
             else{
@@ -102,8 +107,10 @@ class DiferentLightGs : SKScene {
             }
             if badLamp.position.x > -60 && badLamp.position.x < 60 && badLamp.position.y > -60 && badLamp.position.y < 60 {
                 badLamp.light.categoryBitMask = 2
-                badLamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
+                badLamp.imageLamp.texture = SKTexture(imageNamed: "blueLabel")
                 badLabel.isHidden = false
+                badLamp.light.lightColor = .blue
+                background.lightingBitMask = 2
             }
             else{
                 badLamp.light.categoryBitMask = 0
@@ -116,7 +123,6 @@ class DiferentLightGs : SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
-            
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes.reversed() {
                 if node.name == "draggable" {
@@ -125,4 +131,5 @@ class DiferentLightGs : SKScene {
             }
         }
     }
+   
 }
