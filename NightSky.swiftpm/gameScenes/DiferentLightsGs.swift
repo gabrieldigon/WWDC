@@ -17,11 +17,11 @@ class DiferentLightGs : SKScene {
     let goodEye = SKSpriteNode(imageNamed: "blueRoundEye")
     let badEye = SKSpriteNode(imageNamed: "browRoundEye")
     var drawCircle = circleNode()
+    let background = SKSpriteNode(color: UIColor(named: "ColorBack")!, size: CGSize(width: 1500, height: 1500))
     override func didMove(to view: SKView) {
         
-        self.backgroundColor = UIColor(named: "ColorBack")!
-       
-       
+        
+        addChild(background)
         
         // adding bad eye
         badEye.position = CGPoint(x: -250, y: 0.5)
@@ -91,6 +91,7 @@ class DiferentLightGs : SKScene {
             
             if goodLamp.position.x > -60 && goodLamp.position.x < 60 && goodLamp.position.y > -60 && goodLamp.position.y < 60 {
                 goodLamp.light.categoryBitMask = 1
+                background.lightingBitMask = 1
                 goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
                 goodLabel.isHidden = false
                 
@@ -104,6 +105,7 @@ class DiferentLightGs : SKScene {
             }
             if badLamp.position.x > -60 && badLamp.position.x < 60 && badLamp.position.y > -60 && badLamp.position.y < 60 {
                 badLamp.light.categoryBitMask = 2
+                background.lightingBitMask = 2
                 badLamp.imageLamp.texture = SKTexture(imageNamed: "blueLabel")
                 badLabel.isHidden = false
                 badLamp.light.lightColor = .blue
@@ -111,6 +113,7 @@ class DiferentLightGs : SKScene {
             }
             else{
                 badLamp.light.categoryBitMask = 0
+               
                 badLamp.imageLamp.texture = SKTexture(imageNamed: "lampDrawOff")
                 badLabel.isHidden = true
             }

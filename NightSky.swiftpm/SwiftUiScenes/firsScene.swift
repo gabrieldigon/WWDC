@@ -8,7 +8,7 @@
 import SwiftUI
 import SpriteKit
 struct firsScene: View {
-    var gamesScenes : [SKScene] = [LightExpandGs(),DiferentLightGs(),ola()]
+    var gamesScenes : [SKScene] = [LightExpandGs(),firstgs(),ola()]
     var scene: SKScene {
         let scene = gamesScenes[1]
         scene.size = CGSize(width: 1100, height: 1200)

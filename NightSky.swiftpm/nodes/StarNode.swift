@@ -18,12 +18,13 @@ class StarNode: SKNode {
        
         self.light = SKLightNode()
         self.light.lightColor = UIColor.blue
-        self.light.ambientColor = UIColor.blue
+        self.light.ambientColor = UIColor.clear
         self.light.shadowColor = UIColor.clear
         self.light.falloff = 1.0
-        self.light.categoryBitMask = 1
+        self.light.categoryBitMask = 0
         
         self.star = .init(imageNamed: "myStar")
+        
       
         
         
