@@ -10,7 +10,7 @@ import SpriteKit
 struct firsScene: View {
     var gamesScenes : [SKScene] = [LightExpandGs(),DiferentLightGs()]
     var scene: SKScene {
-        let scene = gamesScenes[0]
+        let scene = gamesScenes[1]
         scene.size = CGSize(width: 1100, height: 1200)
         scene.anchorPoint = .init(x: 0.5, y: 0.5)
         scene.scaleMode = .fill
@@ -29,14 +29,18 @@ struct firsScene: View {
                     
                     NavigationLink(destination: secondPuzzle()) {
                         Text("Go to second view")
+                           
+                            .font(.custom("Marker Felt", size: 50))
                             .foregroundColor(.white)
-                            .fo
+                            .multilineTextAlignment(.center)
+                            .font(.largeTitle)
                     }
                 }
                 
                 
             }
         }
+        
         .navigationViewStyle(.stack)
     }
 }

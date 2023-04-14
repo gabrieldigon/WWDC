@@ -11,7 +11,7 @@ import SpriteKit
 class StarNode: SKNode {
     
     let light : SKLightNode
-    let star : SKShapeNode
+    let star : SKSpriteNode
    
     override init() {
         
@@ -21,11 +21,10 @@ class StarNode: SKNode {
         self.light.ambientColor = UIColor.blue
         self.light.shadowColor = UIColor.clear
         self.light.falloff = 1.0
-        self.light.categoryBitMask = 0
+        self.light.categoryBitMask = 1
         
-        self.star = SKShapeNode(circleOfRadius: 5)
-        self.star.fillColor = SKColor.clear
-        self.star.strokeColor = SKColor.clear
+        self.star = .init(imageNamed: "myStar")
+      
         
         
         super.init()
