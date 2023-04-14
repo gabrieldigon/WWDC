@@ -12,7 +12,6 @@ class DiferentLightGs : SKScene {
     var goodLamp  = LampNode()
     var badLamp  = LampNode()
     private var currentNode: SKNode?
-    let background = SKSpriteNode(imageNamed: "backgroundDegrade")
     var goodLabel = SKLabelNode(fontNamed:"Marker Felt")
     var badLabel = SKLabelNode(fontNamed:"Marker Felt")
     let goodEye = SKSpriteNode(imageNamed: "blueRoundEye")
@@ -20,11 +19,9 @@ class DiferentLightGs : SKScene {
     var drawCircle = circleNode()
     override func didMove(to view: SKView) {
         
-        //adding background
-        background.lightingBitMask = 1
-        background.size = .init(width: 1100, height: 1200)
+        self.backgroundColor = UIColor(named: "ColorBack")!
        
-        addChild(background)
+       
         
         // adding bad eye
         badEye.position = CGPoint(x: -250, y: 0.5)
@@ -96,7 +93,7 @@ class DiferentLightGs : SKScene {
                 goodLamp.light.categoryBitMask = 1
                 goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
                 goodLabel.isHidden = false
-                background.lightingBitMask = 1
+                
                 
             }
             else{
@@ -110,7 +107,7 @@ class DiferentLightGs : SKScene {
                 badLamp.imageLamp.texture = SKTexture(imageNamed: "blueLabel")
                 badLabel.isHidden = false
                 badLamp.light.lightColor = .blue
-                background.lightingBitMask = 2
+               
             }
             else{
                 badLamp.light.categoryBitMask = 0

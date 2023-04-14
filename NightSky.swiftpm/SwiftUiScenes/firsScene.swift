@@ -10,7 +10,7 @@ import SpriteKit
 struct firsScene: View {
     var gamesScenes : [SKScene] = [LightExpandGs(),DiferentLightGs(),ola()]
     var scene: SKScene {
-        let scene = gamesScenes[2]
+        let scene = gamesScenes[1]
         scene.size = CGSize(width: 1100, height: 1200)
         scene.anchorPoint = .init(x: 0.5, y: 0.5)
         scene.scaleMode = .fill
@@ -20,7 +20,7 @@ struct firsScene: View {
         NavigationView{
             
             ZStack{
-                Color.black
+                Color(UIColor(named: "ColorBack")!)
                     .ignoresSafeArea()
                 VStack{
                     SpriteView(scene: scene)

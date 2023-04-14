@@ -12,10 +12,10 @@ class ola: SKScene {
     var lamp = LampNode()
     let drawCircle = circleNode()
     let background = SKSpriteNode(imageNamed: "backgroundDegrade")
-    let badEye = SKSpriteNode(imageNamed: "ground")
-    let badEye2 = SKSpriteNode(imageNamed: "ground")
-    let badEye3 = SKSpriteNode(imageNamed: "ground")
-    let badEye4 = SKSpriteNode(imageNamed: "ground")
+    let badEye = SKSpriteNode(imageNamed: "Square")
+    let badEye2 = SKSpriteNode(imageNamed: "Square")
+    let badEye3 = SKSpriteNode(imageNamed: "triangle")
+    let badEye4 = SKSpriteNode(imageNamed: "triangle")
     let box = StarNode()
 
     override func didMove(to view: SKView) {
@@ -25,7 +25,6 @@ class ola: SKScene {
         addChild(background)
         
         box.position = CGPoint(x: 0.5, y: 300)
-        
         addChild(box)
         
         // adding bad eye
@@ -50,7 +49,7 @@ class ola: SKScene {
         addChild(badEye4)
         
         lamp.position = CGPoint(x: 100, y: 0.5)
-        lamp.light.shadowColor = .white
+        lamp.light.shadowColor = .init(cgColor: .init(red: 0, green: 0, blue: 0, alpha: 0.5))
         addChild(lamp)
       
         // circulo do meio

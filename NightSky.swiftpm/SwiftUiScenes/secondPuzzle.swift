@@ -19,7 +19,7 @@ struct secondPuzzle: View {
     var body: some View {
                     
             ZStack{
-                Color.black
+                Color(UIColor(named: "ColorBack")!)
                     .ignoresSafeArea()
                 VStack{
                     SpriteView(scene: scene)
