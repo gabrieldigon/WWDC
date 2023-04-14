@@ -14,7 +14,7 @@ class LampNode: SKNode {
         self.light.lightColor = UIColor.white
         self.light.ambientColor = UIColor.gray
         self.light.shadowColor = UIColor.clear
-        self.light.falloff = 0.1
+        self.light.falloff = 1.0
         self.light.categoryBitMask = 0
         
         self.imageLamp = .init(imageNamed: "lampDrawOff")
