@@ -23,7 +23,6 @@ class DiferentLightGs : SKScene {
     override func didMove(to view: SKView) {
         
         addChild(background)
-        
         //adding instruction Label
         labelUp.text = "Choose the good Lamp"
         labelUp.fontSize = 40
