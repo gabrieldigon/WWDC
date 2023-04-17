@@ -30,7 +30,7 @@ class firstgs: SKScene {
         //addong pointer
         pointer.size = CGSize(width: 350, height: 350)
         pointer.position = CGPoint(x: 0.5, y: -520)
-        pointer.zRotation = .pi/2
+        pointer.zRotation = .pi/55
         pointer.isHidden = true
         
         addChild(pointer)

@@ -18,15 +18,27 @@ class DiferentLightGs : SKScene {
     let badEye = SKSpriteNode(imageNamed: "browRoundEye")
     var drawCircle = circleNode()
     let background = SKSpriteNode(color: UIColor(named: "ColorBack")!, size: CGSize(width: 1500, height: 1500))
+    let labelUp = SKLabelNode(fontNamed: "Marker Felt")
+
     override func didMove(to view: SKView) {
-        
         
         addChild(background)
         
+        //adding instruction Label
+        labelUp.text = "Choose the good Lamp"
+        labelUp.fontSize = 40
+        labelUp.position = CGPoint(x: 0.5, y: 550)
+        labelUp.fontColor = .white
+        labelUp.lineBreakMode = .byCharWrapping
+        labelUp.numberOfLines = 3
+        labelUp.preferredMaxLayoutWidth = 400
+        addChild(labelUp)
+
         // adding bad eye
         badEye.position = CGPoint(x: -250, y: 0.5)
         badEye.shadowCastBitMask = 2
         addChild(badEye)
+       
         
         //adicionar olho bom
         goodEye.position = CGPoint(x: 250, y: 0.5)
@@ -51,7 +63,7 @@ class DiferentLightGs : SKScene {
         addChild(badLamp)
         
         //label GoodLamp
-        goodLabel.text = "This lamp is safe to use!"
+        goodLabel.text = "This kind of light is safe to use!"
         goodLabel.fontSize = 30
         goodLabel.position = CGPoint(x: 375, y: 0.5)
         goodLabel.fontColor = SKColor.black
@@ -72,8 +84,6 @@ class DiferentLightGs : SKScene {
         badLabel.preferredMaxLayoutWidth = 200
         addChild(badLabel)
         
-        //add button
-      
        
 
     }
@@ -95,10 +105,9 @@ class DiferentLightGs : SKScene {
                 goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
                 goodLabel.isHidden = false
                 
-                
             }
             else{
-                
+                labelUp.isHidden = false
                 goodLamp.light.categoryBitMask = 0
                 goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDrawOff")
                 goodLabel.isHidden = true
@@ -109,11 +118,9 @@ class DiferentLightGs : SKScene {
                 badLamp.imageLamp.texture = SKTexture(imageNamed: "blueLabel")
                 badLabel.isHidden = false
                 badLamp.light.lightColor = .blue
-               
             }
             else{
                 badLamp.light.categoryBitMask = 0
-               
                 badLamp.imageLamp.texture = SKTexture(imageNamed: "lampDrawOff")
                 badLabel.isHidden = true
             }

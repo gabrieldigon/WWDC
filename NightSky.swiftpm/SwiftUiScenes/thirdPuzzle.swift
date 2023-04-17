@@ -1,14 +1,16 @@
 //
-//  AboutLP.swift
+//  thirdPuzzle.swift
 //  NightSky
 //
-//  Created by Gabriel Dias Goncalves on 31/03/23.
-// This screen will have info about light polution
+//  Created by Gabriel Dias Goncalves on 17/04/23.
+//
 
 import SwiftUI
+import Foundation
 import SpriteKit
-struct secondPuzzle: View {
-    var gamesScenes : [SKScene] = [LotsOfLights()]
+
+struct thirdPuzzle: View {
+    var gamesScenes : [SKScene] = [DiferentLightGs()]
     var scene: SKScene {
         let scene = gamesScenes[0]
         scene.size = CGSize(width: 1100, height: 1200)
@@ -26,13 +28,13 @@ struct secondPuzzle: View {
                         .frame(width: 1100, height: 1200)
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden()
-                    NavigationLink(destination: thirdPuzzle()) {
-                        Text("Next")
-                            .font(.custom("Marker Felt", size: 50))
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                            .font(.largeTitle)
-                    }
+//                    NavigationLink(destination: firsScene()) {
+//                        Text("Go to first view")
+//                            .font(.custom("Marker Felt", size: 50))
+//                            .foregroundColor(.white)
+//                            .multilineTextAlignment(.center)
+//                            .font(.largeTitle)
+//                    }
                 }
                 
                 
@@ -42,9 +44,8 @@ struct secondPuzzle: View {
    
 }
 
-struct secondPuzzle_Previews: PreviewProvider {
+struct thirdPuzzle_Previews: PreviewProvider {
     static var previews: some View {
-        secondPuzzle()
+        thirdPuzzle()
     }
 }
-

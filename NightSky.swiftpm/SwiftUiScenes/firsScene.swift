@@ -8,16 +8,16 @@
 import SwiftUI
 import SpriteKit
 struct firsScene: View {
-    var gamesScenes : [SKScene] = [LightExpandGs(),firstgs(),ola()]
+    var gamesScenes : [SKScene] = [firstgs()]
     var scene: SKScene {
-        let scene = gamesScenes[1]
+        let scene = gamesScenes[0]
         scene.size = CGSize(width: 1100, height: 1200)
         scene.anchorPoint = .init(x: 0.5, y: 0.5)
         scene.scaleMode = .fill
         return scene
     }
     var body: some View {
-        NavigationView{
+      
             
             ZStack{
                 Color(UIColor(named: "ColorBack")!)
@@ -28,8 +28,8 @@ struct firsScene: View {
                         .ignoresSafeArea()
                     
                     NavigationLink(destination: secondPuzzle()) {
-                        Text("Go to second view")
-                           
+                        Text("Next")
+                            .navigationBarBackButtonHidden()
                             .font(.custom("Marker Felt", size: 50))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
@@ -39,9 +39,7 @@ struct firsScene: View {
                 
                 
             }
-        }
         
-        .navigationViewStyle(.stack)
     }
 }
 
