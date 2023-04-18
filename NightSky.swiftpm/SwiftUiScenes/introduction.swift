@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Introduction: View {
     var body: some View {
-        NavigationView{
             ZStack{
                 Color(UIColor(named: "ColorBack")!)
                     .ignoresSafeArea()
@@ -28,10 +27,10 @@ struct Introduction: View {
                         .font(.custom("Marker Felt", size: 50))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
-                    
+                      
                     NavigationLink(destination: firsScene()) {
                         Text("next")
-                            
+                            .navigationBarBackButtonHidden()
                             .font(.custom("Marker Felt", size: 50))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
@@ -39,8 +38,6 @@ struct Introduction: View {
                     }
                 }
             }
-        }
-        .navigationViewStyle(.stack)
     }
 }
 

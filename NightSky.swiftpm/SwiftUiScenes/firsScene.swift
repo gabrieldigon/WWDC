@@ -26,10 +26,10 @@ struct firsScene: View {
                     SpriteView(scene: scene)
                         .frame(width: 1100, height: 1200)
                         .ignoresSafeArea()
-                    
+                        .navigationBarBackButtonHidden()
                     NavigationLink(destination: secondPuzzle()) {
                         Text("Next")
-                            .navigationBarBackButtonHidden()
+                           
                             .font(.custom("Marker Felt", size: 50))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)

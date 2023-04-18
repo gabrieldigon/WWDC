@@ -12,27 +12,27 @@ class DiferentLightGs : SKScene {
     var goodLamp  = LampNode()
     var badLamp  = LampNode()
     private var currentNode: SKNode?
+    var instructionLabel = SKLabelNode(fontNamed: "Marker Felt")
+    var warmLabel = SKLabelNode(fontNamed: "Marker Felt")
     var goodLabel = SKLabelNode(fontNamed:"Marker Felt")
     var badLabel = SKLabelNode(fontNamed:"Marker Felt")
     let goodEye = SKSpriteNode(imageNamed: "blueRoundEye")
     let badEye = SKSpriteNode(imageNamed: "browRoundEye")
     var drawCircle = circleNode()
     let background = SKSpriteNode(color: UIColor(named: "ColorBack")!, size: CGSize(width: 1500, height: 1500))
-    let labelUp = SKLabelNode(fontNamed: "Marker Felt")
+  
 
     override func didMove(to view: SKView) {
         
         addChild(background)
-        //adding instruction Label
-        labelUp.text = "Choose the good Lamp"
-        labelUp.fontSize = 40
-        labelUp.position = CGPoint(x: 0.5, y: 550)
-        labelUp.fontColor = .white
-        labelUp.lineBreakMode = .byCharWrapping
-        labelUp.numberOfLines = 3
-        labelUp.preferredMaxLayoutWidth = 400
-        addChild(labelUp)
-
+        
+        //adding instruction label
+        instructionLabel.text = "ola"
+        addChild(instructionLabel)
+        
+        warmLabel.text = "label2"
+        addChild(warmLabel)
+        
         // adding bad eye
         badEye.position = CGPoint(x: -250, y: 0.5)
         badEye.shadowCastBitMask = 2
@@ -106,7 +106,6 @@ class DiferentLightGs : SKScene {
                 
             }
             else{
-                labelUp.isHidden = false
                 goodLamp.light.categoryBitMask = 0
                 goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDrawOff")
                 goodLabel.isHidden = true

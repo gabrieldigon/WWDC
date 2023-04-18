@@ -19,7 +19,6 @@ struct thirdPuzzle: View {
         return scene
     }
     var body: some View {
-                    
             ZStack{
                 Color(UIColor(named: "ColorBack")!)
                     .ignoresSafeArea()
