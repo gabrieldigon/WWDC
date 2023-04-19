@@ -20,7 +20,7 @@ class firstgs: SKScene {
     let labelUp = SKLabelNode(fontNamed: "Marker Felt")
     let labelDown = SKLabelNode(fontNamed: "Marker Felt")
     
-    let pointer = SKSpriteNode(imageNamed: "pointerDown2")
+    let pointer = SKSpriteNode(imageNamed: "alternativepointer")
     let background = SKSpriteNode(color: UIColor(named: "ColorBack")!, size: CGSize(width: 1500, height: 1500))
     let drawCircle = circleNode()
     override func didMove(to view: SKView) {
@@ -28,8 +28,8 @@ class firstgs: SKScene {
         addChild(background)
         
         //addong pointer
-        pointer.size = CGSize(width: 350, height: 350)
-        pointer.position = CGPoint(x: 0.5, y: -520)
+        pointer.size = CGSize(width: 500, height: 500)
+        pointer.position = CGPoint(x: 0.5, y: -375)
         pointer.zRotation = .pi/55
         pointer.isHidden = true
         

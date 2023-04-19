@@ -11,7 +11,7 @@ struct secondPuzzle: View {
     var gamesScenes : [SKScene] = [LotsOfLights()]
     var scene: SKScene {
         let scene = gamesScenes[0]
-        scene.size = CGSize(width: 500, height: 500)
+        scene.size = CGSize(width: 1100, height: 1200)
         scene.anchorPoint = .init(x: 0.5, y: 0.5)
         scene.scaleMode = .fill
         return scene
@@ -23,7 +23,7 @@ struct secondPuzzle: View {
                     .ignoresSafeArea()
                 VStack{
                     SpriteView(scene: scene)
-                        .frame(width: 500, height: 1200)
+                        .frame(width: 1100, height: 1200)
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden()
                     NavigationLink(destination: thirdPuzzle()) {

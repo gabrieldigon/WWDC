@@ -17,14 +17,14 @@ class StarNode: SKNode {
         
        
         self.light = SKLightNode()
-        self.light.lightColor = UIColor.blue
-        self.light.ambientColor = UIColor.clear
-        self.light.shadowColor = UIColor.clear
+        self.light.lightColor = UIColor(named: "StarLightColor")!
+        self.light.ambientColor = UIColor.white
+        self.light.shadowColor = UIColor.white
         self.light.falloff = 1.0
         self.light.categoryBitMask = 0
         
         self.star = .init(imageNamed: "myStar")
-        
+        self.star.size = CGSize(width: 200, height: 200)
       
         
         

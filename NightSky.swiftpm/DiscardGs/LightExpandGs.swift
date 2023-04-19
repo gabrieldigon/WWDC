@@ -25,11 +25,20 @@ class LightExpandGs: SKScene {
         //mountains
         mountains.size = CGSize(width: 1024, height: 1024)
         mountains.lightingBitMask = 1
+        addChild(mountains)
         //stars
         stars.texture?.filteringMode = .nearest
         stars.size = CGSize(width: 1024, height: 1024)
         addChild(stars)
-        addChild(mountains)
+        //titulo
+        TitleLabel.text = "Dark Sky"
+        TitleLabel.fontSize = 100
+        TitleLabel.position = CGPoint(x: 0.5, y: 100)
+        TitleLabel.fontColor = .white
+        TitleLabel.lineBreakMode = .byCharWrapping
+        TitleLabel.numberOfLines = 3
+        TitleLabel.preferredMaxLayoutWidth = 400
+        addChild(TitleLabel)
         //lampada
         lamp.position = CGPoint(x: 350, y: 0.5)
         lamp.name = "draggable"

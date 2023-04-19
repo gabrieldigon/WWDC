@@ -27,13 +27,13 @@ struct thirdPuzzle: View {
                         .frame(width: 1100, height: 1200)
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden()
-//                    NavigationLink(destination: firsScene()) {
-//                        Text("Go to first view")
-//                            .font(.custom("Marker Felt", size: 50))
-//                            .foregroundColor(.white)
-//                            .multilineTextAlignment(.center)
-//                            .font(.largeTitle)
-//                    }
+                    NavigationLink(destination: Explanation()) {
+                        Text("next")
+                            .font(.custom("Marker Felt", size: 50))
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .font(.largeTitle)
+                    }
                 }
                 
                 
