@@ -29,7 +29,7 @@ class StarsUp: SKScene {
         addChild(background)
         
         //label GoodLamp
-        label.text = "The main secret is to use light just when you need, where you need, with the right kind of light, that means not pointing light up.Using timers and motions sensors also helps to vanquish light polution."
+        label.text = "The main secret is to use light just when you need, where you need, with the right kind of light, that means not pointing light up. Using timers and motions sensors also helps to vanquish light polution."
         label.fontSize = 50
         label.position = CGPoint(x: 0.5, y: 140)
         label.fontColor = SKColor.white
