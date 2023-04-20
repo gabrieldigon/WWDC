@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "NightSky",
+    name: "DarkSky",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "NightSky",
+            name: "DarkSky",
             targets: ["AppModule"],
             bundleIdentifier: "testes.NightSky",
             teamIdentifier: "XKBJR2ZWTW",

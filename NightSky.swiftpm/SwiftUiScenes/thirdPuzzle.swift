@@ -28,7 +28,9 @@ struct thirdPuzzle: View {
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden()
                     NavigationLink(destination: Explanation()) {
-                        Text("next")
+                        Image("NextOption2")
+                            .resizable()
+                            .frame(width:200 ,height: 200)
                             .font(.custom("Marker Felt", size: 50))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
