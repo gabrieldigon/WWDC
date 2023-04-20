@@ -29,17 +29,15 @@ class Introductiongs: SKScene {
         background.lightingBitMask = 1
         addChild(background)
         //stars
-        stars4.texture?.filteringMode = .nearest
         stars4.position = CGPoint(x: 0.5, y: 400)
-        addChild(stars4)
-        stars3.texture?.filteringMode = .nearest
+//        addChild(stars4)
         stars3.position = CGPoint(x: 0.5, y: -1600)
+        stars3.alpha = 0.6
         addChild(stars3)
         stars2.position = CGPoint(x: 0.5, y: -800)
-        stars2.lightingBitMask = 1
+        stars2.alpha = 0.6
         addChild(stars2)
-        stars.texture?.filteringMode = .nearest
-        stars.size = CGSize(width: 1024, height: 1024)
+        stars.alpha = 0.6
         addChild(stars)
         //titulo
         TitleLabel.text = "The stars are beautiful!"
@@ -70,12 +68,11 @@ class Introductiongs: SKScene {
         addChild(callToAction)
         
         //lampada
-        lamp.position = CGPoint(x: 200, y: -150)
-        lamp.name = "draggable"
+        lamp.position = CGPoint(x: 400, y: -694)
         lamp.imageLamp.texture = SKTexture(imageNamed: "myStar")
         lamp.imageLamp.size = CGSize(width: 250, height: 250)
         lamp.light.categoryBitMask = 1
-
+     
         addChild(lamp)
         
     }
@@ -96,6 +93,7 @@ class Introductiongs: SKScene {
         if let touch = touches.first, let node = self.currentNode {
             let touchLocation = touch.location(in: self)
             node.position = touchLocation
+            print(touchLocation)
         }
         
     }

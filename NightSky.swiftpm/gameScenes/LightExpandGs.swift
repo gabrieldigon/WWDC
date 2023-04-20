@@ -40,7 +40,7 @@ class LightExpandGs: SKScene {
         TitleLabel.preferredMaxLayoutWidth = 400
         addChild(TitleLabel)
         //lampada
-        lamp.position = CGPoint(x: 350, y: 0.5)
+        lamp.position = CGPoint(x: 0.5, y: -140)
         lamp.name = "draggable"
         addChild(lamp)
         

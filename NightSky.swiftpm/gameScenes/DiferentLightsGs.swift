@@ -29,7 +29,7 @@ class DiferentLightGs : SKScene {
         addChild(background) 
         
         //adding instruction label/blueviolet
-        instructionLabel.text = "Choose one of the Lamps"
+        instructionLabel.text = "Choose one of the Lamps."
         instructionLabel.fontSize = 50
         instructionLabel.position = CGPoint(x: 0.5, y: 400)
         addChild(instructionLabel)
@@ -75,7 +75,7 @@ class DiferentLightGs : SKScene {
         addChild(badLamp)
         
         //label GoodLamp
-        goodLabel.text = "Warm lights are good for our eyes"
+        goodLabel.text = "Warm lights are good for our eyes."
         goodLabel.fontSize = 30
         goodLabel.position = CGPoint(x: 375, y: 0.5)
         goodLabel.fontColor = SKColor.white
@@ -86,7 +86,7 @@ class DiferentLightGs : SKScene {
         addChild(goodLabel)
         
         //label GoodLamp
-        badLabel.text = "Blue-Violet lights causes glare in our eyes!"
+        badLabel.text = "Blue-Violet lights cause glare in our eyes!"
         badLabel.fontSize = 30
         badLabel.position = CGPoint(x: -375, y: 0.5)
         badLabel.fontColor = SKColor.white
@@ -98,7 +98,7 @@ class DiferentLightGs : SKScene {
         
         //addong pointer
         pointer.size = CGSize(width: 500, height: 500)
-        pointer.position = CGPoint(x: 0.5, y: -375)
+        pointer.position = CGPoint(x: 0.5, y: -390)
         pointer.zRotation = .pi/55
         pointer.isHidden = true
         addChild(pointer)
