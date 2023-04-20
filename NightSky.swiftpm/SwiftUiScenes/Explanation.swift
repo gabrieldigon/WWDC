@@ -6,33 +6,36 @@
 //
 
 import SwiftUI
-
+import SpriteKit
 struct Explanation: View {
+    var scene: SKScene {
+        let scene = ExplanationGs()
+        scene.size = CGSize(width: 1100, height: 1200)
+        scene.anchorPoint = .init(x: 0.5, y: 0.5)
+        scene.scaleMode = .fill
+        return scene
+    }
     var body: some View {
-        ZStack{
-            Color(UIColor(named: "ColorBack")!)
-                .ignoresSafeArea()
-            VStack(){
-                Text("The stars are far away and the light that gets to us is weak so lots of artificial lights together pointed Up  with the wrong type of light  make the city  the worst place to see the stars, we call that light polution.")
-                    .font(.custom("Marker Felt", size: 50))
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                
-                Text("So…how can we solve it?")
-                    .font(.custom("Marker Felt", size: 50))
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                  
-                NavigationLink(destination: fourthPuzzle()) {
-                    Text("next")
+            ZStack{
+                Color(UIColor(named: "ColorBack")!)
+                    .ignoresSafeArea()
+                VStack{
+                    SpriteView(scene: scene)
+                        .frame(width: 1100, height: 1200)
+                        .ignoresSafeArea()
                         .navigationBarBackButtonHidden()
-                        .font(.custom("Marker Felt", size: 50))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .font(.largeTitle)
+                    NavigationLink(destination: fourthPuzzle()) {
+                        Text("next")
+                            .font(.custom("Marker Felt", size: 50))
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .font(.largeTitle)
+                    }
                 }
+                
+                
             }
-        }
+       
     }
 }
 
@@ -41,3 +44,8 @@ struct Explanation_Previews: PreviewProvider {
         Explanation()
     }
 }
+
+
+
+
+

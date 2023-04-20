@@ -6,31 +6,31 @@
 //
 
 import SwiftUI
-
+import SpriteKit
 struct Introduction: View {
+    var scene: SKScene {
+        let scene = Introductiongs()
+        scene.size = CGSize(width: 1100, height: 1200)
+        scene.anchorPoint = .init(x: 0.5, y: 0.5)
+        scene.scaleMode = .fill
+        return scene
+    }
     var body: some View {
             ZStack{
                 Color(UIColor(named: "ColorBack")!)
+                
                     .ignoresSafeArea()
-                VStack(spacing: 300){
-                    Text("The stars are beautiful!")
-                        .font(.custom("Marker Felt", size: 50))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
+                VStack(){
                     
-                    Text("Unfortunately we can’t see them in the big city and some people don’t even know how the REAL sky looks like.")
-                        .font(.custom("Marker Felt", size: 50))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
+                    SpriteView(scene: scene)
+                        .frame(width: 1100, height: 1200)
+                        .ignoresSafeArea()
+                        .navigationBarBackButtonHidden()
                     
-                    Text("But Why that happens?")
-                        .font(.custom("Marker Felt", size: 50))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                      
-                    NavigationLink(destination: firsScene()) {
-                        Text("next")
-                            .navigationBarBackButtonHidden()
+                    NavigationLink(destination:firsScene()) {
+                       
+                        Text("Next")
+                           
                             .font(.custom("Marker Felt", size: 50))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
@@ -38,6 +38,7 @@ struct Introduction: View {
                     }
                 }
             }
+        
     }
 }
 

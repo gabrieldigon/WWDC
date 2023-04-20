@@ -11,10 +11,6 @@ class LotsOfLights: SKScene {
     let background = SKSpriteNode(color: UIColor(named: "ColorBack")!, size: CGSize(width: 1500, height: 1500))
     let ground = SKSpriteNode(imageNamed: "otherGround")
     
-    let building1 = SKSpriteNode(imageNamed: "NewBulding2")
-    let building2 = SKSpriteNode(imageNamed: "building1Rember")
-    let building3 = SKSpriteNode(imageNamed: "building3rename")
-    
     var Star1 = StarNode()
     var Star2 = StarNode()
     var Star3 = StarNode()
@@ -32,17 +28,20 @@ class LotsOfLights: SKScene {
     
     let tapLabel = SKLabelNode(fontNamed: "Marker Felt")
     let resultLabel = SKLabelNode(fontNamed: "Marker Felt")
+    var buildings = SKSpriteNode(imageNamed: "CityOff")
     var count = 0
     
     override func didMove(to view: SKView) {
-        view.showsPhysics = true
-        //fisica
+        
+        
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         // adding background
         background.lightingBitMask = 1
         addChild(background)
         //adding stars
-        
+        buildings.size = CGSize(width: 1400, height: 1400)
+        buildings.position = CGPoint(x: 0.5, y: -210)
+        addChild(buildings)
         Star1.position = CGPoint(x: -105, y: 302)
         Star2.position = CGPoint(x: 71, y: 302)
         Star3.position = CGPoint(x: 260, y: 449)
@@ -73,31 +72,6 @@ class LotsOfLights: SKScene {
         ground.physicsBody?.categoryBitMask = 1
         addChild(ground)
         
-        //adding buildings
-        building1.position = CGPoint(x: 100, y: -240)
-        building1.physicsBody = SKPhysicsBody(texture: building1.texture!, size: building1.texture!.size())
-        building1.physicsBody?.affectedByGravity = false
-        building1.physicsBody?.isDynamic = false
-        building1.physicsBody?.categoryBitMask = 1
-        building1.lightingBitMask = 1
-        addChild(building1)
-        
-        building2.position = CGPoint(x: -200, y: -230)
-        building2.physicsBody = SKPhysicsBody(texture: building2.texture!, size: building2.texture!.size())
-        building2.physicsBody?.affectedByGravity = false
-        building2.physicsBody?.isDynamic = false
-        building2.physicsBody?.categoryBitMask = 1
-        building2.lightingBitMask = 1
-        addChild(building2)
-        
-        building3.position = CGPoint(x: 400, y: -130)
-        building3.physicsBody = SKPhysicsBody(texture: building3.texture!, size: building3.texture!.size())
-        building3.physicsBody?.affectedByGravity = false
-        building3.physicsBody?.isDynamic = false
-        building3.physicsBody?.categoryBitMask = 1
-        building3.lightingBitMask = 1
-        addChild(building3)
-        
         //adding city lights
         citylight1.lightColor = .white
         citylight1.ambientColor = .white
@@ -107,7 +81,7 @@ class LotsOfLights: SKScene {
         
         citylight2.lightColor = .white
         citylight2.ambientColor = .white
-        citylight2.categoryBitMask = 1
+        citylight2.categoryBitMask = 0
         citylight2.isHidden = true
         addChild(citylight2)
         
@@ -150,6 +124,7 @@ class LotsOfLights: SKScene {
         print(location)
         count += 1
         if count == 10 {
+            buildings.texture = SKTexture(imageNamed: "CItyOn")
             Star1.isHidden = true
             Star2.isHidden = true
             Star3.isHidden = true
@@ -168,6 +143,7 @@ class LotsOfLights: SKScene {
         }
         lamp.position = location
         lamp.physicsBody?.collisionBitMask = 1
+        lamp.size = CGSize(width: 300, height: 300)
         lamp.physicsBody = SKPhysicsBody(texture: lamp.texture!, size: lamp.texture!.size())
         addChild(lamp)
         

@@ -20,18 +20,33 @@ class DiferentLightGs : SKScene {
     let badEye = SKSpriteNode(imageNamed: "browRoundEye")
     var drawCircle = circleNode()
     let background = SKSpriteNode(color: UIColor(named: "ColorBack")!, size: CGSize(width: 1500, height: 1500))
-  
-
+    let blueViolet = SKSpriteNode(imageNamed: "blueVioletPallet")
+    let warmPallet = SKSpriteNode(imageNamed: "WarmPallete")
+    let pointer = SKSpriteNode(imageNamed: "alternativepointer")
+    
     override func didMove(to view: SKView) {
+        background.lightingBitMask = 1
+        addChild(background) 
         
-        addChild(background)
-        
-        //adding instruction label
-        instructionLabel.text = "ola"
+        //adding instruction label/blueviolet
+        instructionLabel.text = "Choose one of the Lamps"
+        instructionLabel.fontSize = 50
+        instructionLabel.position = CGPoint(x: 0.5, y: 400)
         addChild(instructionLabel)
+        //blueVioletPallet
+        blueViolet.position = CGPoint(x: 100, y: -495)
+      
+        addChild(blueViolet)
         
-        warmLabel.text = "label2"
+        //adding downLabel
+        warmLabel.text = "Warm         Blue-Violet"
+        warmLabel.fontSize = 40
+        warmLabel.position = CGPoint(x: 0.5, y: -400)
         addChild(warmLabel)
+        
+        //adding warm pallete
+        warmPallet.position = CGPoint(x: -130, y: -500)
+        addChild(warmPallet)
         
         // adding bad eye
         badEye.position = CGPoint(x: -250, y: 0.5)
@@ -52,20 +67,18 @@ class DiferentLightGs : SKScene {
         // adding bad lamp
         goodLamp.name = "draggable"
         goodLamp.position = CGPoint(x: 0.5, y: -150)
-        goodLamp.light.shadowColor = .white
         addChild(goodLamp)
         
         // adding good lamp
         badLamp.name = "draggable"
         badLamp.position = CGPoint(x: 0.5, y: 150)
-        badLamp.light.shadowColor = .systemBlue
         addChild(badLamp)
         
         //label GoodLamp
-        goodLabel.text = "This kind of light is safe to use!"
+        goodLabel.text = "Warm lights are good for our eyes"
         goodLabel.fontSize = 30
         goodLabel.position = CGPoint(x: 375, y: 0.5)
-        goodLabel.fontColor = SKColor.black
+        goodLabel.fontColor = SKColor.white
         goodLabel.isHidden = true
         goodLabel.lineBreakMode = .byCharWrapping
         goodLabel.numberOfLines = 3
@@ -73,25 +86,24 @@ class DiferentLightGs : SKScene {
         addChild(goodLabel)
         
         //label GoodLamp
-        badLabel.text = "This light causes glare in our eyes!"
+        badLabel.text = "Blue-Violet lights causes glare in our eyes!"
         badLabel.fontSize = 30
         badLabel.position = CGPoint(x: -375, y: 0.5)
-        badLabel.fontColor = SKColor.black
+        badLabel.fontColor = SKColor.white
         badLabel.isHidden = true
         badLabel.lineBreakMode = .byCharWrapping
         badLabel.numberOfLines = 3
         badLabel.preferredMaxLayoutWidth = 200
         addChild(badLabel)
         
-       
-
+        //addong pointer
+        pointer.size = CGSize(width: 500, height: 500)
+        pointer.position = CGPoint(x: 0.5, y: -375)
+        pointer.zRotation = .pi/55
+        pointer.isHidden = true
+        addChild(pointer)
     }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.currentNode = nil
-    }
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.currentNode = nil
-    }
+  
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, let node = self.currentNode {
             let touchLocation = touch.location(in: self)
@@ -100,27 +112,32 @@ class DiferentLightGs : SKScene {
             
             if goodLamp.position.x > -60 && goodLamp.position.x < 60 && goodLamp.position.y > -60 && goodLamp.position.y < 60 {
                 goodLamp.light.categoryBitMask = 1
-                background.lightingBitMask = 1
                 goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
+                goodEye.shadowCastBitMask = 1
                 goodLabel.isHidden = false
+                pointer.isHidden = false
                 
             }
-            else{
-                goodLamp.light.categoryBitMask = 0
-                goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDrawOff")
+            else {
                 goodLabel.isHidden = true
+                goodLamp.light.categoryBitMask = 0
+                goodEye.shadowCastBitMask = 0
+                goodLamp.imageLamp.texture = SKTexture(imageNamed: "lampDrawOff")
+
             }
-            if badLamp.position.x > -60 && badLamp.position.x < 60 && badLamp.position.y > -60 && badLamp.position.y < 60 {
-                badLamp.light.categoryBitMask = 2
-                background.lightingBitMask = 2
-                badLamp.imageLamp.texture = SKTexture(imageNamed: "blueLabel")
+            
+             if badLamp.position.x > -60 && badLamp.position.x < 60 && badLamp.position.y > -60 && badLamp.position.y < 60 {
+                 
                 badLabel.isHidden = false
-                badLamp.light.lightColor = .blue
+                badLamp.light.categoryBitMask = 1
+                badLamp.imageLamp.texture = SKTexture(imageNamed: "blueLabel")
+                badEye.shadowCastBitMask = 1
             }
             else{
+                badLabel.isHidden = true
                 badLamp.light.categoryBitMask = 0
                 badLamp.imageLamp.texture = SKTexture(imageNamed: "lampDrawOff")
-                badLabel.isHidden = true
+                badEye.shadowCastBitMask = 0
             }
         }
     }

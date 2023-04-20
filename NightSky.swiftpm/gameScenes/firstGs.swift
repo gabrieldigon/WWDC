@@ -10,7 +10,7 @@ class firstgs: SKScene {
     
     var touchLocation = CGPoint()
     
-    
+    let auxiliarCircle = SKSpriteNode(imageNamed: "circle")
     let downLeft = SKSpriteNode(imageNamed: "circle")
     private var currentNode: SKNode?
     
@@ -74,12 +74,13 @@ class firstgs: SKScene {
         addChild(lamp)
         
         //shadowCaster
-        let auxiliarCircle = SKSpriteNode(imageNamed: "circle")
         auxiliarCircle.size = CGSize(width: 400, height: 400)
         auxiliarCircle.addChild(downLeft)
         auxiliarCircle.name = "draggable"
         auxiliarCircle.position = CGPoint(x: 0.5, y: 220)
         auxiliarCircle.lightingBitMask = 1
+        auxiliarCircle.isHidden = true
+        downLeft.isHidden = true
         downLeft.lightingBitMask = 1
         downLeft.size = CGSize(width: 400, height: 400)
         downLeft.shadowCastBitMask = 1
@@ -109,19 +110,17 @@ class firstgs: SKScene {
         if let location = touches.first?.location(in: self) {
             if lamp.position.x > 0 && lamp.position.x < 30 && lamp.position.y > -130 && lamp.position.y < -70 {
                 star1.isHidden = false
-                
+                auxiliarCircle.isHidden = false
                 downLeft.isHidden = false
                 
                 pointer.isHidden = false
                 
                 
                 labelUp.isHidden = false
-                labelDown.text = "you can move the shadow as well..."
+                labelDown.text = "why don't you move tha shadow aswell?"
                 lamp.light.categoryBitMask = 1
                 lamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
-                
                 drawCircle.isHidden = true
-                
             }
         }
     }

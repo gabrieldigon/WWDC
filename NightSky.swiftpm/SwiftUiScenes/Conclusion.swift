@@ -6,34 +6,38 @@
 //
 
 import SwiftUI
-
+import SpriteKit
 struct Conclusion: View {
-    var body: some View {
-        ZStack{
-            Color(UIColor(named: "ColorBack")!)
-                .ignoresSafeArea()
-            VStack(){
-                Text("Spreading the word and adjusting what you can in your house will help us see it all again, let's do it!")
-                    .font(.custom("Marker Felt", size: 50))
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                
-                Text("The stars are ours to admire and they remind us that we are part of something bigger, they remind us to look up.")
-                    .font(.custom("Marker Felt", size: 50))
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .navigationBarBackButtonHidden()
-//                NavigationLink(destination: fourthPuzzle()) {
-//                    Text("next")
-//                        .navigationBarBackButtonHidden()
-//                        .font(.custom("Marker Felt", size: 50))
-//                        .foregroundColor(.white)
-//                        .multilineTextAlignment(.center)
-//                        .font(.largeTitle)
-//                }
-            }
-        }
+    var scene: SKScene {
+        let scene = StarsUp()
+        scene.size = CGSize(width: 1100, height: 1200)
+        scene.anchorPoint = .init(x: 0.5, y: 0.5)
+        scene.scaleMode = .fill
+        return scene
     }
+    var body: some View {
+            ZStack{
+                Color(UIColor(named: "ColorBack")!)
+                    .ignoresSafeArea()
+                VStack{
+                    SpriteView(scene: scene)
+                        .frame(width: 1100, height: 1200)
+                        .ignoresSafeArea()
+                        .navigationBarBackButtonHidden()
+//                    NavigationLink(destination: Conclusion()) {
+//                        Text("next")
+//                            .font(.custom("Marker Felt", size: 50))
+//                            .foregroundColor(.white)
+//                            .multilineTextAlignment(.center)
+//                            .font(.largeTitle)
+//                    }
+                }
+                
+                
+            }
+       
+    }
+   
 }
 
 struct Conclusion_Previews: PreviewProvider {

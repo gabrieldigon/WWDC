@@ -10,9 +10,9 @@ import SpriteKit
 
 class ConclusionGs: SKScene {
     
-    var badArea = SKSpriteNode(imageNamed: "JustTheBadcircle")
+    var badArea = SKSpriteNode(imageNamed: "justTheGoodCircle")
     var middleArea = SKSpriteNode(imageNamed: "justTheGoodCircle")
-    var goodArea = SKSpriteNode(imageNamed: "justTheGoodCircle")
+    var goodArea = SKSpriteNode(imageNamed: "JustTheBadcircle")
     var lamp = LampNode()
     var badlamp = SKSpriteNode(imageNamed: "justTheBase")
     var middleLamp = SKSpriteNode(imageNamed: "justTheBase")
@@ -22,8 +22,9 @@ class ConclusionGs: SKScene {
     let ground = SKSpriteNode(imageNamed: "otherGround")
     private var currentNode: SKNode?
     let badHat = SKSpriteNode(imageNamed: "MiddleShield")
-    var goodhat = SKSpriteNode(imageNamed: "squareShield")
+    var goodhat = SKSpriteNode(imageNamed: "NewGoodshield")
     let pointer = SKSpriteNode(imageNamed: "alternativepointer")
+    let closeLights = SKLabelNode(fontNamed: "Marker Felt")
     
     var Star1 = StarNode()
     var Star2 = StarNode()
@@ -48,12 +49,12 @@ class ConclusionGs: SKScene {
         //adding lampShields
         
         //add shields
-        badHat.position = CGPoint(x: -15, y: 70)
-        badHat.size = CGSize(width: 500, height: 1100)
+        badHat.position = CGPoint(x: -14, y: 50)
+        badHat.size = CGSize(width: 400, height: 400)
         addChild(badHat)
        
-        goodhat.position = CGPoint(x: 300, y:-35)
-        goodhat.size = CGSize(width: 500, height: 500)
+        goodhat.position = CGPoint(x: 290, y: 10)
+        goodhat.size = CGSize(width: 700, height: 700)
         addChild(goodhat)
         
         //adding streetLights
@@ -82,8 +83,8 @@ class ConclusionGs: SKScene {
         addChild(goodLamp)
         
         //adding turn on areas
-        badArea.position = CGPoint(x: 310, y: -150)
-        badArea.size = CGSize(width: 1200, height: 1200)
+        badArea.position = CGPoint(x: 295, y: -100)
+        badArea.size = CGSize(width: 750, height: 750)
         addChild(badArea)
         
         middleArea.position = CGPoint(x: 10, y: -150)
@@ -101,7 +102,7 @@ class ConclusionGs: SKScene {
         lamp.name = "draggable"
         addChild(lamp)
         //label instruction
-        instructionLabel.text = "Choose the right StreetPole"
+        instructionLabel.text = "Choose the right shield for the streepole."
         instructionLabel.fontSize = 40
         instructionLabel.position = CGPoint(x: 0.5, y: 450)
         instructionLabel.fontColor = .white
@@ -132,10 +133,22 @@ class ConclusionGs: SKScene {
         addChild(Star8)
         
         pointer.size = CGSize(width: 500, height: 500)
-        pointer.position = CGPoint(x: 0.5, y: -375)
+        pointer.position = CGPoint(x: 0.5, y: -392)
         pointer.zRotation = .pi/55
         pointer.isHidden = true
         addChild(pointer)
+        
+        //closeLights label
+        
+        closeLights.text = "Streetpoles must STAY AWAY from eachother so they don't enlight the SAME PLACE."
+        closeLights.fontSize = 37
+        closeLights.position = CGPoint(x: -135, y: -450)
+        closeLights.fontColor = .white
+        closeLights.verticalAlignmentMode = .center
+        closeLights.lineBreakMode = .byCharWrapping
+        closeLights.numberOfLines = 3
+        closeLights.preferredMaxLayoutWidth = 750
+        addChild(closeLights)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -149,7 +162,7 @@ class ConclusionGs: SKScene {
         if lamp.position.x > -347 && lamp.position.x < -291 && lamp.position.y > -34 && lamp.position.y < -7 {
             lamp.light.categoryBitMask = 1
             lamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
-            instructionLabel.text = "A lot of light is going to the stars so they disapear"
+            instructionLabel.text = "A lot of light is going to the stars so they disapear."
             Star1.isHidden = true
             Star2.isHidden = true
             Star3.isHidden = true
@@ -158,34 +171,39 @@ class ConclusionGs: SKScene {
             Star6.isHidden = true
             Star7.isHidden = true
             Star8.isHidden = true
+            goodArea.isHidden = true
         }
         //middle
         else if lamp.position.x > -37 && lamp.position.x < 17 && lamp.position.y > -24 && lamp.position.y < -7 {
             lamp.light.categoryBitMask = 1
             lamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
-            badHat.shadowCastBitMask = 1
-            instructionLabel.text = "This one is not sooooo bad but light still goes up"
+            instructionLabel.text = "This one is not sooooo bad but light still goes up."
             Star5.isHidden = true
             Star6.isHidden = true
             Star7.isHidden = true
             Star8.isHidden = true
-            
+            middleArea.isHidden = true
+            badHat.shadowCastBitMask = 1
         }
         //good
         else if lamp.position.x > 265 && lamp.position.x < 313 && lamp.position.y > -34 && lamp.position.y < -7 {
             goodhat.shadowCastBitMask = 1
             lamp.imageLamp.texture = SKTexture(imageNamed: "lampDraw")
             lamp.light.categoryBitMask = 1
-            instructionLabel.text = "This one is perfect, light is going only down"
+            instructionLabel.text = "This one is perfect, light is going only down."
             pointer.isHidden = false
+            badArea.isHidden = true
         }
         //TurnedOff
         else{
+            badArea.isHidden = false
+            goodArea.isHidden = false
+            middleArea.isHidden = false
             lamp.imageLamp.texture = SKTexture(imageNamed: "lampDrawOff")
             goodhat.shadowCastBitMask = 0
             badHat.shadowCastBitMask = 0
             lamp.light.categoryBitMask = 0
-            instructionLabel.text = "Choose the right StreetPole"
+            instructionLabel.text = "Choose the right shield for the streepole."
             Star1.isHidden = false
             Star2.isHidden = false
             Star3.isHidden = false

@@ -17,7 +17,7 @@ class StarNode: SKNode {
         
        
         self.light = SKLightNode()
-        self.light.lightColor = UIColor(named: "StarLightColor")!
+        self.light.lightColor = UIColor.white
         self.light.ambientColor = UIColor.white
         self.light.shadowColor = UIColor.white
         self.light.falloff = 1.0

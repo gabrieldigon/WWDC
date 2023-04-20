@@ -26,6 +26,7 @@ struct secondPuzzle: View {
                         .frame(width: 1100, height: 1200)
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden()
+                    
                     NavigationLink(destination: thirdPuzzle()) {
                         Text("Next")
                             .font(.custom("Marker Felt", size: 50))
